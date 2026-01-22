@@ -29,12 +29,12 @@ func (c *Client) ListLocations(pageUrl *string) (RespShallowLocations, error) {
 	if err != nil {
 		return RespShallowLocations{}, err
 	}
-	c.cache.Add(url, data)
 	locationsResp := RespShallowLocations{}
 	err = json.Unmarshal(data, &locationsResp)
 	if err != nil {
 		return RespShallowLocations{}, err
 	}
+	c.cache.Add(url, data)
 	return locationsResp, nil
 }
 func isCached(val []byte) (RespShallowLocations, error) {

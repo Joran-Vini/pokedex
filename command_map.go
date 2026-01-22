@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func commandMap(conf *config) error {
+func commandMap(conf *config, args ...string) error {
 	locationsResp, err := conf.pokeapiClient.ListLocations(conf.next)
 	if err != nil {
 		return err
@@ -17,7 +17,7 @@ func commandMap(conf *config) error {
 	}
 	return nil
 }
-func commandMapBack(conf *config) error {
+func commandMapBack(conf *config, args ...string) error {
 	if conf.previous == nil {
 		fmt.Println("No previous page available.")
 		return nil
