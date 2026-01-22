@@ -18,13 +18,12 @@ func commandCatch(conf *config, args ...string) error {
 		return err
 	}
 	chance := rand.Intn(pokemon.BaseExperience)
-	if chance < 100 {
+	if chance < 40 {
 		fmt.Printf("Caught %s!\n", pokemon.Name)
 		conf.pokedex[pokemon.Name] = pokemon
 	} else {
 		fmt.Printf("%s escaped!\n", pokemon.Name)
 	}
 
-	fmt.Printf("Base Experience: %d\n", pokemon.BaseExperience)
 	return nil
 }
